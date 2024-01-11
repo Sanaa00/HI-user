@@ -1,0 +1,17 @@
+import Modal from 'react-modal';
+function ModalComponent({ item }) {
+  const { id } = useParams();
+  const { data: singleItem } = useGetSingleProductQuery({ id });
+  return (
+    <Modal>
+      {' '}
+      <img
+        src={item.image}
+        alt="test paper"
+        className="w-fit h-fit object-contain"
+      />
+    </Modal>
+  );
+}
+
+export default ModalComponent;
