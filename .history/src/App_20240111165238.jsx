@@ -8,21 +8,19 @@ import Laboratory from './Pages/Laboratory';
 import Radiographic from './Pages/Radiographic';
 import ModalComponent from './Components/modalComponent';
 import Login from './Pages/Login';
-import SignUp from './Pages/SignUp';
 
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/laboratory" element={<Laboratory />}>
           <Route path=":id" element={<ModalComponent />} />
         </Route>
         <Route path="/Radiographic" element={<Radiographic />} />
         <Route path="/Prescription" element={<Prescription />} />
-        <Route path="/" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
         {/* <Route path="products" element={<Products />} />
           <Route path="setting" element={<Setting />} />
           <Route path="hide" element={<HideProducts />} /> */}

@@ -8,7 +8,6 @@ import Laboratory from './Pages/Laboratory';
 import Radiographic from './Pages/Radiographic';
 import ModalComponent from './Components/modalComponent';
 import Login from './Pages/Login';
-import SignUp from './Pages/SignUp';
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
         <Route path="/Radiographic" element={<Radiographic />} />
         <Route path="/Prescription" element={<Prescription />} />
         <Route path="/" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
         {/* <Route path="products" element={<Products />} />
           <Route path="setting" element={<Setting />} />
           <Route path="hide" element={<HideProducts />} /> */}
