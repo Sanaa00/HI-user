@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-// import Modal from 'react-modal';
-// import ModalComponent from '../Components/modalComponent';
+import Modal from 'react-modal';
+import ModalComponent from '../Components/modalComponent';
 import Pagination from '../Components/Pagination';
 import { supabase } from '../supabaseClient';
 import Laboratory from '../assets/images/Laboratory.svg';
@@ -41,9 +41,9 @@ function LaboratoryExamination() {
   // function closeModal() {
   //   setIsOpen(false);
   // }
-  // function openModal() {
-  //   setIsOpen(true);
-  // }
+  function openModal() {
+    setIsOpen(true);
+  }
   // const customStyles = {
   //   content: {
   //     top: '50%',
@@ -69,10 +69,7 @@ function LaboratoryExamination() {
           {currentItems.map((item) => {
             return (
               <div key={item.id} className="mt-5  bg-neutral-100 rounded-md">
-                <button
-                  // onClick={openModal}
-                  className="w-full h-60"
-                >
+                <button onClick={openModal} className="w-full h-60">
                   <img
                     src={item.image}
                     alt="test paper"

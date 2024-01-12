@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-// import Modal from 'react-modal';
-// import ModalComponent from '../Components/modalComponent';
+import Modal from 'react-modal';
+import ModalComponent from '../Components/modalComponent';
 import Pagination from '../Components/Pagination';
 import { supabase } from '../supabaseClient';
 import Laboratory from '../assets/images/Laboratory.svg';
@@ -37,23 +37,23 @@ function LaboratoryExamination() {
     setItemOffset(newOffset);
   };
 
-  // const [modalIsOpen, setIsOpen] = useState(false);
-  // function closeModal() {
-  //   setIsOpen(false);
-  // }
-  // function openModal() {
-  //   setIsOpen(true);
-  // }
-  // const customStyles = {
-  //   content: {
-  //     top: '50%',
-  //     left: '50%',
-  //     right: 'auto',
-  //     bottom: 'auto',
-  //     marginRight: '-50%',
-  //     transform: 'translate(-50%, -50%)',
-  //   },
-  // };
+  const [modalIsOpen, setIsOpen] = useState(false);
+  function closeModal() {
+    setIsOpen(false);
+  }
+  function openModal() {
+    setIsOpen(true);
+  }
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
 
   return (
     <div className="mt-10 min-h-screen p-4 sm:px-10 md:px-20">
@@ -69,10 +69,7 @@ function LaboratoryExamination() {
           {currentItems.map((item) => {
             return (
               <div key={item.id} className="mt-5  bg-neutral-100 rounded-md">
-                <button
-                  // onClick={openModal}
-                  className="w-full h-60"
-                >
+                <button onClick={openModal} className="w-full h-60">
                   <img
                     src={item.image}
                     alt="test paper"
