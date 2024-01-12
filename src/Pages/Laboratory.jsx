@@ -1,8 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import ModalComponent from '../Components/modalComponent';
 import Pagination from '../Components/Pagination';
+import { supabase } from '../supabaseClient';
+
 function LaboratoryExamination() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data, error } = await supabase
+        .from('personInformation')
+        .select('*');
+
+      console.log('first', data);
+      if (error) console.log('Error', error);
+      else setData(data);
+    };
+
+    fetchData();
+  }, []);
+
   const Laboratory = [
     {
       id: 1,
@@ -60,9 +78,17 @@ function LaboratoryExamination() {
   };
 
   return (
-    <div className="mt-10 min-h-screen p-4  sm:px-10 md:px-20">
+    <div className="mt-10 min-h-screen p-4 sm:px-10 md:px-20">
       <div className="mt-5 font-bold text-lg">Laboratory Examination</div>
-      <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-5 xl:grid-cols-3 ">
+      {data.map((item) => (
+        <div key={item.id}>
+          <div> {item.cardId}</div>
+          <div> {item.fullName}</div>
+          <div> {item.contactNumber}</div>
+          <div> {item.gender}</div>
+        </div>
+      ))}{' '}
+      {/* <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-5 xl:grid-cols-3 ">
         {Laboratory.map((item) => {
           return (
             <div key={item.id} className="mt-5  bg-neutral-100 rounded-md">
@@ -87,8 +113,8 @@ function LaboratoryExamination() {
             </div>
           );
         })}
-      </div>
-      <Pagination />
+      </div> */}
+      {/* <Pagination /> */}
     </div>
   );
 }
