@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Modal from 'react-modal';
-import ModalComponent from '../Components/modalComponent';
+// import Modal from 'react-modal';
+// import ModalComponent from '../Components/modalComponent';
 import Pagination from '../Components/Pagination';
 import { supabase } from '../supabaseClient';
 import Laboratory from '../assets/images/Laboratory.svg';
@@ -10,6 +10,13 @@ function LaboratoryExamination() {
   const [pageCount, setPageCount] = useState(1);
   const [currentItems, setCurrentItems] = useState([]);
   const itemsPerPage = 6;
+  //  <div className="w-full overflow-y-auto flex justify-center items-center">
+  //    <img
+  //      src={item.image}
+  //      alt="test paper"
+  //      className="w-fit h-fit object-contain"
+  //    />
+  //  </div>;
   useEffect(() => {
     const fetchData = async () => {
       const { data, error } = await supabase

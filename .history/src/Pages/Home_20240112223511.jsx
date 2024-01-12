@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
+// import { FaLocationDot, FaPhone } from 'react-icons/fa6';
 import { LuPhone } from 'react-icons/lu';
 import { MdPermIdentity } from 'react-icons/md';
+// import { CiPhone } from 'react-icons/ci';
 import { GrLocation } from 'react-icons/gr';
 import { BsCalendarDate } from 'react-icons/bs';
 import { PiGenderFemale, PiGenderMale } from 'react-icons/pi';
@@ -33,9 +35,25 @@ function Home() {
           alt="user"
         />
       </div>
+      {/* <div className="mt-5 text-center font-bold text-lg lg:w-1/2">
+        Personal Information
+      </div> */}
       <div className="mt-3 lg:w-1/2 flex justify-center items-center">
+        {/* <span>Name:</span> */}
         <span className="ml-2 font-semibold">{data.fullName}</span>
       </div>{' '}
+      {/* <div className="mt-2 flex justify-between items-center lg:w-1/2"> */}
+      {/* <span>
+          {' '}
+          <span>DOB:</span>
+          <span className="ml-2">{data.dateOfBirth}</span>
+        </span>{' '}
+        <span>
+          {' '}
+          <span>Gender:</span>
+          <span className="ml-2">{data.gender}</span>
+        </span> */}
+      {/* </div>{' '} */}
       <div className="mt-5  bg-neutral-50 text-neutral-500 rounded-md p-4 shadow ">
         {' '}
         <div className="mt-2 flex justify-between items-center lg:w-1/2">

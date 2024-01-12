@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
+// import { FaLocationDot, FaPhone } from 'react-icons/fa6';
 import { LuPhone } from 'react-icons/lu';
 import { MdPermIdentity } from 'react-icons/md';
+// import { CiPhone } from 'react-icons/ci';
 import { GrLocation } from 'react-icons/gr';
 import { BsCalendarDate } from 'react-icons/bs';
 import { PiGenderFemale, PiGenderMale } from 'react-icons/pi';

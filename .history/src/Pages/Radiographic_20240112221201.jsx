@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
 import Radiography from '../assets/images/Radiography.svg';
 import Pagination from '../Components/Pagination';
-import ModalComponent from '../Components/modalComponent';
-import Modal from 'react-modal';
 function RadiographicExamination() {
   const [data, setData] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
@@ -11,12 +9,10 @@ function RadiographicExamination() {
   const [currentItems, setCurrentItems] = useState([]);
   const itemsPerPage = 6;
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [image, setImage] = useState('');
   function closeModal() {
     setIsOpen(false);
   }
-  function openModal(item) {
-    setImage(item);
+  function openModal() {
     setIsOpen(true);
   }
   const customStyles = {
@@ -43,7 +39,6 @@ function RadiographicExamination() {
     );
     setItemOffset(newOffset);
   };
-  useEffect(() => {}, [image, setImage]);
   useEffect(() => {
     const fetchData = async () => {
       const { data, error } = await supabase
@@ -73,25 +68,11 @@ function RadiographicExamination() {
             {currentItems.map((item) => {
               return (
                 <div key={item.id} className="mt-5  bg-neutral-100 rounded-md">
-                  <button
-                    onClick={() => openModal(item.image)}
-                    className="w-full h-60"
-                  >
-                    {' '}
-                    <img
-                      src={item.image}
-                      alt="test paper"
-                      className="w-full h-60 object-cover"
-                    />
-                  </button>
-                  <Modal
-                    onRequestClose={closeModal}
-                    isOpen={modalIsOpen}
-                    style={customStyles}
-                  >
-                    <ModalComponent item={item} />
-                  </Modal>
-
+                  <img
+                    src={item.image}
+                    alt="test paper"
+                    className="w-full h-60 object-cover"
+                  />
                   <div className="p-4 flex justify-between items-center ">
                     <span>{item.examinationType}</span>
                     <span>{item.dateOfExamination}</span>
@@ -100,7 +81,7 @@ function RadiographicExamination() {
               );
             })}
           </div>
-
+          {/* <div className="self-end flex flex-col"> */}
           <Pagination
             itemsPerPage={6}
             allData={data}
@@ -109,6 +90,7 @@ function RadiographicExamination() {
             handlePageClick={handlePageClick}
           />
         </div>
+        // </div>
       )}
     </div>
   );

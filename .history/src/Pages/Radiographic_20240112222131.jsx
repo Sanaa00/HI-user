@@ -43,7 +43,6 @@ function RadiographicExamination() {
     );
     setItemOffset(newOffset);
   };
-  useEffect(() => {}, [image, setImage]);
   useEffect(() => {
     const fetchData = async () => {
       const { data, error } = await supabase
@@ -100,7 +99,7 @@ function RadiographicExamination() {
               );
             })}
           </div>
-
+          {/* <div className="self-end flex flex-col"> */}
           <Pagination
             itemsPerPage={6}
             allData={data}
@@ -109,6 +108,7 @@ function RadiographicExamination() {
             handlePageClick={handlePageClick}
           />
         </div>
+        // </div>
       )}
     </div>
   );

@@ -100,7 +100,7 @@ function RadiographicExamination() {
               );
             })}
           </div>
-
+          {/* <div className="self-end flex flex-col"> */}
           <Pagination
             itemsPerPage={6}
             allData={data}

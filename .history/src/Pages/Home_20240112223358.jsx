@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
+// import { FaLocationDot, FaPhone } from 'react-icons/fa6';
 import { LuPhone } from 'react-icons/lu';
 import { MdPermIdentity } from 'react-icons/md';
+// import { CiPhone } from 'react-icons/ci';
 import { GrLocation } from 'react-icons/gr';
 import { BsCalendarDate } from 'react-icons/bs';
 import { PiGenderFemale, PiGenderMale } from 'react-icons/pi';
@@ -33,9 +35,25 @@ function Home() {
           alt="user"
         />
       </div>
+      {/* <div className="mt-5 text-center font-bold text-lg lg:w-1/2">
+        Personal Information
+      </div> */}
       <div className="mt-3 lg:w-1/2 flex justify-center items-center">
+        {/* <span>Name:</span> */}
         <span className="ml-2 font-semibold">{data.fullName}</span>
       </div>{' '}
+      {/* <div className="mt-2 flex justify-between items-center lg:w-1/2"> */}
+      {/* <span>
+          {' '}
+          <span>DOB:</span>
+          <span className="ml-2">{data.dateOfBirth}</span>
+        </span>{' '}
+        <span>
+          {' '}
+          <span>Gender:</span>
+          <span className="ml-2">{data.gender}</span>
+        </span> */}
+      {/* </div>{' '} */}
       <div className="mt-5  bg-neutral-50 text-neutral-500 rounded-md p-4 shadow ">
         {' '}
         <div className="mt-2 flex justify-between items-center lg:w-1/2">
@@ -94,6 +112,7 @@ function Home() {
       {/* **********vital information*********** */}
       <div className="mt-5 text-neutral-50 grid grid-cols-3 gap-5 justify-between items-center  text-lg lg:w-1/2">
         {' '}
+        {/* <div className="mt-2 flex justify-between items-center lg:w-1/2"> */}
         <div className="w-full flex flex-col items-center justify-center bg-blue-500 p-4 rounded-md shadow-sm ">
           {' '}
           <div className="ml-2 text-xl font-bold">O+</div>
@@ -101,6 +120,8 @@ function Home() {
             Blood
           </div>
         </div>{' '}
+        {/* </div>{' '} */}
+        {/* <div className="mt-2 flex justify-between items-center lg:w-1/2"> */}
         <div className="flex w-full flex-col justify-center items-center bg-blue-500 p-4 rounded-md shadow-sm">
           {' '}
           <div className="text-center ml-2 text-xl font-bold">172cm</div>{' '}
@@ -116,7 +137,6 @@ function Home() {
           </div>
         </div>{' '}
       </div>{' '}
-      {/*TODO ********MUST ADD LATER************* * */}
       {/* </div> */}
       {/* <div className="mt-2 flex justify-between items-center lg:w-1/2">
         <span>
@@ -163,8 +183,18 @@ function Home() {
           Emergency Contacts
         </div>
         <div className="mt-2 flex items-center lg:w-1/2">
+          {/* <span> */} {/* <span> */} <MdPermIdentity className="w-6 h-6" />
+          {/* </span> */}
           <span className="ml-2">{data.emergencyContactName}</span>
+          {/* </span>{' '} */}
         </div>{' '}
+        {/* <div className="mt-2 flex justify-between items-center lg:w-1/2">
+          <span>
+            {' '}
+            <span>Relationship to the patient:</span>
+            <span className="ml-2">Boy</span>
+          </span>{' '}
+        </div>{' '} */}
         <div className="mt-2  flex justify-between items-center lg:w-1/2">
           <span className="flex items-center">
             {' '}
@@ -176,6 +206,7 @@ function Home() {
           </span>{' '}
         </div>
       </div>
+      */}
     </div>
   );
 }

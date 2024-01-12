@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
+
 import { LuPhone } from 'react-icons/lu';
 import { MdPermIdentity } from 'react-icons/md';
 import { GrLocation } from 'react-icons/gr';
