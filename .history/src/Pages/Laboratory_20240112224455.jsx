@@ -60,11 +60,7 @@ function LaboratoryExamination() {
       <div className="mt-5 font-bold text-lg">Laboratory Examination</div>
       {data.length === 0 ? (
         <div className="w-full flex-col  mt-32 flex justify-center items-center">
-          <img
-            src={Laboratory}
-            alt="No Laboratory Examination"
-            className="flex w-11/12"
-          />
+          <img src={Laboratory} alt="No Laboratory Examination" />
           <p className="font-semibold text-neutral-300">No Result</p>
         </div>
       ) : (

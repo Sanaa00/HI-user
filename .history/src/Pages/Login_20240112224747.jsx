@@ -25,15 +25,15 @@ function Login() {
   });
 
   return (
-    <div className="pt-16 p-4 sm:px-10 md:px-20 grid grid-cols-1 md:grid-cols-2 items-start lg:gap-20  h-screen">
+    <div className="mt-16 p-4 sm:px-10 md:px-20  grid  md:grid-cols-2 items-start gap-20  min-h-screen">
       <div className=" justify-center  sm:flex">
         <img
           src={loginImage}
-          className="w-full h-60 sm:h-96 md:h-[500px] object-contain md:object-cover"
+          className="w-full h-72 sm:h-96 md:h-[500px] object-contain md:object-cover"
         />
       </div>
       <Formik>
-        <div className="w-full flex flex-col items-center justify-center md:mt-28 sm:mt-0">
+        <div className="w-full flex  flex-col items-center justify-center md:mt-28 mt-32 sm:mt-0">
           <p className="font-semibold text-lg text-gray-800 ">Login</p>
           <Form
             onSubmit={formik.handleSubmit}
@@ -109,16 +109,13 @@ function Login() {
               </Link>
             </p>
             <div className="mt-5">
-              <button className="text-white text-center bg-blue-500 py-2 w-full  rounded hover:bg-opacity-80 hover:duration-500 duration-500">
-                {' '}
-                <NavLink
-                  to="/home"
-                  type="submit"
-                  className=" text-center  w-full  "
-                >
-                  Login
-                </NavLink>
-              </button>{' '}
+              <NavLink
+                to="/home"
+                type="submit"
+                className="text-white bg-blue-500 text-center py-2 w-full  rounded hover:bg-opacity-80 hover:duration-500 duration-500"
+              >
+                Login
+              </NavLink>
             </div>
           </Form>
         </div>

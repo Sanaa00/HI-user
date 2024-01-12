@@ -109,16 +109,13 @@ function Login() {
               </Link>
             </p>
             <div className="mt-5">
-              <button className="text-white text-center bg-blue-500 py-2 w-full  rounded hover:bg-opacity-80 hover:duration-500 duration-500">
-                {' '}
-                <NavLink
-                  to="/home"
-                  type="submit"
-                  className=" text-center  w-full  "
-                >
-                  Login
-                </NavLink>
-              </button>{' '}
+              <NavLink
+                to="/home"
+                type="submit"
+                className="text-white bg-blue-500 text-center py-2 w-full  rounded hover:bg-opacity-80 hover:duration-500 duration-500"
+              >
+                Login
+              </NavLink>
             </div>
           </Form>
         </div>
