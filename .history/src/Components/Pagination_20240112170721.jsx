@@ -28,7 +28,7 @@ function Pagination({
   return (
     <ReactPaginate
       className="flex items-center text-lg  justify-center my-5"
-      pageClassName="m-2 text-lg"
+      pageClassName="m-2"
       breakLabel="..."
       // nextLabel="next >"
       onPageChange={handlePageClick}

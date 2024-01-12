@@ -4,44 +4,28 @@ import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
 import { MdArrowBackIos, MdArrowForwardIos } from 'react-icons/md';
-function Pagination({
-  setPage,
-  allData,
-  itemsPerPage,
-  setItemOffset,
-  handlePageClick,
-  pageCount,
-}) {
+function Pagination({ setPage, allData, itemsPerPage }) {
   // const [itemOffset, setItemOffset] = useState(0);
   // const endOffset = itemOffset + itemsPerPage;
-  // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-  // const currentItems = allData.slice(itemOffset, endOffset);
-  // const pageCount = Math.ceil(allData.length / itemsPerPage);
+  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+  const currentItems = allData.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(allData.length / itemsPerPage);
 
-  // const handlePageClick = (event) => {
-  //   const newOffset = (event.selected * itemsPerPage) % allData.length;
-  //   console.log(
-  //     `User requested page number ${event.selected}, which is offset ${newOffset}`,
-  //   );
-  //   setItemOffset(newOffset);
-  // };
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % allData.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`,
+    );
+    setItemOffset(newOffset);
+  };
   return (
     <ReactPaginate
-      className="flex items-center text-lg  justify-center my-5"
-      pageClassName="m-2 text-lg"
       breakLabel="..."
-      // nextLabel="next >"
+      nextLabel="next >"
       onPageChange={handlePageClick}
       pageRangeDisplayed={5}
       pageCount={pageCount}
-      activeClassName="text-blue-500"
-      // previousLabel="< previous"
-      nextLabel={
-        <MdArrowForwardIos className="w-7 h-7 hover:text-green text-gray-700 duration-500 hover:duration-500 mx-2" />
-      }
-      previousLabel={
-        <MdArrowBackIos className="w-7 h-7 hover:text-green text-gray-700 duration-500 hover:duration-500 mx-2" />
-      }
+      previousLabel="< previous"
       renderOnZeroPageCount={null}
     />
     // <ReactPaginate

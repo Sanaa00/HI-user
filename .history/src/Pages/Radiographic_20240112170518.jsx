@@ -84,7 +84,7 @@ function RadiographicExamination() {
           <p className="font-semibold text-neutral-300">No Result</p>
         </div>
       ) : (
-        <div className="flex flex-col items-center  ">
+        <div className="flex flex-col items-center ">
           <div className="w-full flex flex-col lg:grid lg:grid-cols-2 lg:gap-5 xl:grid-cols-3 ">
             {currentItems.map((item) => {
               return (
@@ -102,7 +102,6 @@ function RadiographicExamination() {
               );
             })}
           </div>
-          {/* <div className="self-end flex flex-col"> */}
           <Pagination
             itemsPerPage={6}
             allData={data}
@@ -111,7 +110,6 @@ function RadiographicExamination() {
             handlePageClick={handlePageClick}
           />
         </div>
-        // </div>
       )}
     </div>
   );

@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
-import Medical from '../assets/images/Medical.svg';
-function Prescription() {
+import Radiography from '../assets/images/Radiography.svg';
+import Pagination from '../Components/Pagination';
+function RadiographicExamination() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data, error } = await supabase.from('prescription').select('*');
+      const { data, error } = await supabase
+        .from('radiographicExamination')
+        .select('*') // Select all columns, you can specify specific columns if needed
+        .eq('patientID', 34567890);
       console.log('first', data);
       if (error) console.log('Error', error);
       else setData(data);
@@ -14,7 +18,8 @@ function Prescription() {
 
     fetchData();
   }, []);
-  const prescriptions = [
+  console.log('radiographic ', data);
+  const radiographics = [
     {
       id: 1,
       name: 'prescription',
@@ -56,30 +61,33 @@ function Prescription() {
       <div className="mt-5 font-bold text-lg">Laboratory Examination</div>
       {data.length === 0 ? (
         <div className="w-full flex-col  mt-32 flex justify-center items-center">
-          <img src={Medical} alt="No Laboratory Examination" />
+          <img src={Radiography} alt="No Laboratory Examination" />
           <p className="font-semibold text-neutral-300">No Result</p>
         </div>
       ) : (
-        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-5 xl:grid-cols-3 ">
-          {prescriptions.map((item) => {
-            return (
-              <div key={item.id} className="mt-5  bg-neutral-100 rounded-md">
-                <img
-                  src="https://management.ind.in/img/a/ESIC-Medical-Lab-Technician-Exam-paper-2.jpg"
-                  alt="test paper"
-                  className="w-full h-60 object-cover"
-                />
-                <div className="p-4 flex justify-between items-center ">
-                  <span>{item.name}</span>
-                  <span>{item.Date}</span>
+        <div className="flex flex-col items-center">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-5 xl:grid-cols-3 ">
+            {data.map((item) => {
+              return (
+                <div key={item.id} className="mt-5  bg-neutral-100 rounded-md">
+                  <img
+                    src={item.image}
+                    alt="test paper"
+                    className="w-full h-60 object-cover"
+                  />
+                  <div className="p-4 flex justify-between items-center ">
+                    <span>{item.examinationType}</span>
+                    <span>{item.dateOfExamination}</span>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          <Pagination itemsPerPage={6} />
         </div>
       )}
     </div>
   );
 }
 
-export default Prescription;
+export default RadiographicExamination;

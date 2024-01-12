@@ -11,7 +11,9 @@ function LaboratoryExamination() {
     const fetchData = async () => {
       const { data, error } = await supabase
         .from('laboratoryExamination')
-        .select('*');
+        .select('*'); // Select all columns, you can specify specific columns if needed
+      // .eq('id', 34567890)
+      // .single();
       console.log('first', data);
       if (error) console.log('Error', error);
       else setData(data);

@@ -46,6 +46,7 @@ function Home() {
           <span className="ml-2">{data.gender}</span>
         </span>
       </div>{' '}
+      {/* ******************** */}
       <div className="mt-2 flex justify-between items-center lg:w-1/2">
         <span>
           {' '}
@@ -70,6 +71,7 @@ function Home() {
           <span className="ml-2">{data.id}</span>
         </span>{' '}
       </div>
+      {/* </div> */}
       {/* **********vital information*********** */}
       <div className="mt-5 font-bold text-lg lg:w-1/2">Vital Information</div>
       <div className="mt-2 flex justify-between items-center lg:w-1/2">

@@ -27,14 +27,12 @@ function Pagination({
   // };
   return (
     <ReactPaginate
-      className="flex items-center text-lg  justify-center my-5"
-      pageClassName="m-2 text-lg"
+      className="flex items-center justify-center my-5"
       breakLabel="..."
       // nextLabel="next >"
       onPageChange={handlePageClick}
       pageRangeDisplayed={5}
       pageCount={pageCount}
-      activeClassName="text-blue-500"
       // previousLabel="< previous"
       nextLabel={
         <MdArrowForwardIos className="w-7 h-7 hover:text-green text-gray-700 duration-500 hover:duration-500 mx-2" />

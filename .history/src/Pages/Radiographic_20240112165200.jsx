@@ -5,25 +5,15 @@ import Pagination from '../Components/Pagination';
 function RadiographicExamination() {
   const [data, setData] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
-  const [pageCount, setPageCount] = useState(1);
   const [currentItems, setCurrentItems] = useState([]);
-  const itemsPerPage = 6;
-  // const pageCount = Math.ceil(allData.length / itemsPerPage);
+  const pageCount = Math.ceil(allData.length / itemsPerPage);
 
   const endOffset = itemOffset + itemsPerPage;
   useEffect(() => {
-    setCurrentItems(data.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(data.length / itemsPerPage));
-    // setIsLoading(false);
-  }, [endOffset, itemOffset, itemsPerPage, data]);
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % data.length;
-    window.scrollTo(0, 0);
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`,
-    );
-    setItemOffset(newOffset);
-  };
+    setCurrentItems(products.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(products.length / itemsPerPage));
+    setIsLoading(false);
+  }, [endOffset, itemOffset, itemsPerPage, products]);
   useEffect(() => {
     const fetchData = async () => {
       const { data, error } = await supabase
@@ -84,9 +74,9 @@ function RadiographicExamination() {
           <p className="font-semibold text-neutral-300">No Result</p>
         </div>
       ) : (
-        <div className="flex flex-col items-center  ">
-          <div className="w-full flex flex-col lg:grid lg:grid-cols-2 lg:gap-5 xl:grid-cols-3 ">
-            {currentItems.map((item) => {
+        <div className="flex flex-col items-center">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-5 xl:grid-cols-3 ">
+            {data.map((item) => {
               return (
                 <div key={item.id} className="mt-5  bg-neutral-100 rounded-md">
                   <img
@@ -102,16 +92,8 @@ function RadiographicExamination() {
               );
             })}
           </div>
-          {/* <div className="self-end flex flex-col"> */}
-          <Pagination
-            itemsPerPage={6}
-            allData={data}
-            pageCount={pageCount}
-            setItemOffset={setPageCount}
-            handlePageClick={handlePageClick}
-          />
+          <Pagination itemsPerPage={6} allData={data} />
         </div>
-        // </div>
       )}
     </div>
   );

@@ -7,7 +7,7 @@ function Home() {
     const fetchData = async () => {
       const { data, error } = await supabase
         .from('personInformation')
-        .select('*')
+        .select('*') // Select all columns, you can specify specific columns if needed
         .eq('id', 34567890)
         .single();
       console.log('first', data);
@@ -22,53 +22,55 @@ function Home() {
       <div className="flex justify-center items-center">
         {console.log(data)}{' '}
         <img
-          className="object-cover rounded-full w-72 border-4 border-blue-500 h-72 lg:w-1/2 lg:h-96 "
+          className="object-cover rounded-full w-60 border-4 border-blue-500 h-60  lg:w-1/2 lg:h-96 "
           src={data.userImage}
           alt="user"
         />
       </div>
-      <div className="mt-5 font-bold text-lg lg:w-1/2">
-        Personal Information
-      </div>
-      <div className="mt-2 lg:w-1/2">
-        <span>Name:</span>
-        <span className="ml-2">{data.fullName}</span>
-      </div>{' '}
-      <div className="mt-2 flex justify-between items-center lg:w-1/2">
-        <span>
-          {' '}
-          <span>DOB:</span>
-          <span className="ml-2">{data.dateOfBirth}</span>
-        </span>{' '}
-        <span>
-          {' '}
-          <span>Gender:</span>
-          <span className="ml-2">{data.gender}</span>
-        </span>
-      </div>{' '}
-      <div className="mt-2 flex justify-between items-center lg:w-1/2">
-        <span>
-          {' '}
-          <span>Address:</span>
-          <span className="ml-2">
-            {data.city}-{data.address}
+      <div>
+        {' '}
+        <div className="mt-5 font-bold text-lg lg:w-1/2">
+          Personal Information
+        </div>
+        <div className="mt-2 lg:w-1/2">
+          <span>Name:</span>
+          <span className="ml-2">Ali Muhammad Azad</span>
+        </div>{' '}
+        <div className="mt-2 flex justify-between items-center lg:w-1/2">
+          <span>
+            {' '}
+            <span>DOB:</span>
+            <span className="ml-2">1-1-1960</span>
+          </span>{' '}
+          <span>
+            {' '}
+            <span>Gender:</span>
+            <span className="ml-2">Male</span>
           </span>
-        </span>
-      </div>
-      {/* ****************** */}
-      <div className="mt-2 flex justify-between items-center lg:w-1/2">
-        <span>
-          {' '}
-          <span>Contact Number:</span>
-          <span className="ml-2">{data.contactNumber}</span>
-        </span>{' '}
-      </div>{' '}
-      <div className="mt-2 flex justify-between items-center lg:w-1/2">
-        <span>
-          {' '}
-          <span>Patient ID:</span>
-          <span className="ml-2">{data.id}</span>
-        </span>{' '}
+        </div>{' '}
+        {/* ******************** */}
+        <div className="mt-2 flex justify-between items-center lg:w-1/2">
+          <span>
+            {' '}
+            <span>Address:</span>
+            <span className="ml-2">Sulaimanyiah</span>
+          </span>
+        </div>
+        {/* ****************** */}
+        <div className="mt-2 flex justify-between items-center lg:w-1/2">
+          <span>
+            {' '}
+            <span>Contact Number:</span>
+            <span className="ml-2">0700 000 00 00</span>
+          </span>{' '}
+        </div>{' '}
+        <div className="mt-2 flex justify-between items-center lg:w-1/2">
+          <span>
+            {' '}
+            <span>Patient ID:</span>
+            <span className="ml-2">12345678</span>
+          </span>{' '}
+        </div>
       </div>
       {/* **********vital information*********** */}
       <div className="mt-5 font-bold text-lg lg:w-1/2">Vital Information</div>
@@ -116,7 +118,7 @@ function Home() {
         <span>
           {' '}
           <span>Name:</span>
-          <span className="ml-2">{data.emergencyContactName}</span>
+          <span className="ml-2">Ahmad Ali muhammad</span>
         </span>{' '}
       </div>{' '}
       <div className="mt-2 flex justify-between items-center lg:w-1/2">
@@ -130,7 +132,7 @@ function Home() {
         <span>
           {' '}
           <span>Contact Number:</span>
-          <span className="ml-2">{data.emergencyContactNumber}</span>
+          <span className="ml-2">070 000 00 00</span>
         </span>{' '}
       </div>
     </div>

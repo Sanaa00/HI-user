@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import ModalComponent from '../Components/modalComponent';
 import Pagination from '../Components/Pagination';
 import { supabase } from '../supabaseClient';
-import Laboratory from '../assets/images/Laboratory.svg';
+
 function LaboratoryExamination() {
   const [data, setData] = useState([]);
 
@@ -11,7 +11,9 @@ function LaboratoryExamination() {
     const fetchData = async () => {
       const { data, error } = await supabase
         .from('laboratoryExamination')
-        .select('*');
+        .select('*'); // Select all columns, you can specify specific columns if needed
+      // .eq('id', 34567890)
+      // .single();
       console.log('first', data);
       if (error) console.log('Error', error);
       else setData(data);
@@ -20,7 +22,7 @@ function LaboratoryExamination() {
     fetchData();
   }, []);
 
-  const Laboratorys = [
+  const Laboratory = [
     {
       id: 1,
       name: 'Test1',
@@ -77,44 +79,45 @@ function LaboratoryExamination() {
   };
 
   return (
-    <div className="mt-10 min-h-screen p-4 sm:px-10 md:px-20">
-      {' '}
-      <div className="mt-5 font-bold text-lg">Laboratory Examination</div>
-      {data.length === 0 ? (
-        <div className="w-full flex-col  mt-32 flex justify-center items-center">
-          <img src={Laboratory} alt="No Laboratory Examination" />
-          <p className="font-semibold text-neutral-300">No Result</p>
-        </div>
-      ) : (
-        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-5 xl:grid-cols-3 ">
-          {Laboratorys.map((item) => {
-            return (
-              <div key={item.id} className="mt-5  bg-neutral-100 rounded-md">
-                <button onClick={openModal} className="w-full h-60">
-                  <img
-                    src={item.image}
-                    alt="test paper"
-                    className="w-full h-60 object-cover"
-                  />
-                </button>
-                <Modal
-                  onRequestClose={closeModal}
-                  isOpen={modalIsOpen}
-                  style={customStyles}
-                >
-                  <ModalComponent item={item} />
-                </Modal>
-                <div className="p-4 flex justify-between items-center ">
-                  <span>{item.name}</span>
-                  <span>{item.Date}</span>
-                </div>
-              </div>
-            );
-          })}{' '}
-          <Pagination />
-        </div>
-      )}
+    <div className="mt-10 min-h-screen p-4 sm:px-10 md:px-20">  <div className="mt-5 font-bold text-lg">Laboratory Examination</div>
+      {data.length===0?<div>sfr</div>:}
+    
       <div>{console.log(data)}</div>
+      {/* {data.map((item) => (
+        <div key={item.id}>
+          <div> {item.cardId}</div>
+          <div> {item.fullName}</div>
+          <div> {item.contactNumber}</div>
+          <div> {item.gender}</div>
+        </div> */}
+      {/* ))}{' '} */}
+      <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-5 xl:grid-cols-3 ">
+        {Laboratory.map((item) => {
+          return (
+            <div key={item.id} className="mt-5  bg-neutral-100 rounded-md">
+              <button onClick={openModal} className="w-full h-60">
+                <img
+                  src={item.image}
+                  alt="test paper"
+                  className="w-full h-60 object-cover"
+                />
+              </button>
+              <Modal
+                onRequestClose={closeModal}
+                isOpen={modalIsOpen}
+                style={customStyles}
+              >
+                <ModalComponent item={item} />
+              </Modal>
+              <div className="p-4 flex justify-between items-center ">
+                <span>{item.name}</span>
+                <span>{item.Date}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <Pagination />
     </div>
   );
 }
