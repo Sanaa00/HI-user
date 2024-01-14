@@ -159,7 +159,7 @@ function Home() {
       {/* ***************Emergency Contacts********** */}
       <div className="mt-5  bg-neutral-50 text-neutral-500 rounded-md p-4 shadow ">
         {' '}
-        <div className=" font-bold text-blue-700 text-lg lg:w-1/2">
+        <div className=" font-bold text-blue-500 text-lg lg:w-1/2">
           Emergency Contacts
         </div>
         <div className="mt-2 flex items-center lg:w-1/2">

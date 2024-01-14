@@ -73,7 +73,7 @@ function LaboratoryExamination() {
             return (
               <div
                 key={item.id}
-                className="mt-5 bg-neutral-50 shadow rounded-md"
+                className="mt-5  bg-neutral-50 shadow rounded-md"
               >
                 <button onClick={openModal} className="w-full h-60">
                   <img
@@ -90,9 +90,7 @@ function LaboratoryExamination() {
                   <ModalComponent item={item} />
                 </Modal>
                 <div className="p-4 flex justify-between items-center ">
-                  <span className="text-blue-700 font-semibold">
-                    {item.name}
-                  </span>
+                  <span className="text-blue-700">{item.name}</span>
                   <span>{item.Date}</span>
                 </div>
               </div>

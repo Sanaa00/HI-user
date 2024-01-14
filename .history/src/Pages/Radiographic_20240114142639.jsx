@@ -72,10 +72,7 @@ function RadiographicExamination() {
           <div className="w-full flex flex-col lg:grid lg:grid-cols-2 lg:gap-5 xl:grid-cols-3 ">
             {currentItems.map((item) => {
               return (
-                <div
-                  key={item.id}
-                  className="mt-5 shodow bg-neutral-50 rounded-md"
-                >
+                <div key={item.id} className="mt-5  bg-neutral-50 rounded-md">
                   <button
                     onClick={() => openModal(item.image)}
                     className="w-full h-60"
@@ -96,7 +93,7 @@ function RadiographicExamination() {
                   </Modal>
 
                   <div className="p-4 flex justify-between items-center ">
-                    <span className="text-blue-700 font-semibold">
+                    <span className="text-blue-700">
                       {item.examinationType}
                     </span>
                     <span>{item.dateOfExamination}</span>

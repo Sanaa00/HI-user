@@ -3,10 +3,6 @@ import { Link, NavLink } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoCloseSharp } from 'react-icons/io5';
 import { MdPermIdentity } from 'react-icons/md';
-import { LiaXRaySolid } from 'react-icons/lia';
-import { ImLab } from 'react-icons/im';
-import { LiaPillsSolid } from 'react-icons/lia';
-import { FaRegCalendarPlus } from 'react-icons/fa6';
 function Navbar() {
   const [open, setOpen] = useState(false);
   return (
@@ -40,30 +36,24 @@ function Navbar() {
             <Link
               to="/Radiographic"
               onClick={() => setOpen(!open)}
-              className="py-3 flex items-center"
+              className="py-3"
             >
-              <LiaXRaySolid className="w-9 h-9 mr-2" /> Radiographic examination
+              <MdPermIdentity className="w-9 h-9 mr-2" /> Radiographic
+              examination
             </Link>
             <Link
               to="/laboratory"
               onClick={() => setOpen(!open)}
-              className="py-3 flex items-center"
+              className="py-3"
             >
-              <ImLab className="ml-1 w-7 h-8 mr-2" /> Laboratory examination
+              <MdPermIdentity className="w-9 h-9 mr-2" /> Laboratory examination
             </Link>
             <Link
               to="/Prescription"
               onClick={() => setOpen(!open)}
-              className="py-3 flex items-center"
+              className="py-3"
             >
-              <LiaPillsSolid className="ml-1 w-9 h-9 mr-2" /> Prescription
-            </Link>{' '}
-            <Link
-              to="/appointment"
-              onClick={() => setOpen(!open)}
-              className="py-3 flex items-center"
-            >
-              <FaRegCalendarPlus className="ml-1 w-8 h-9 mr-2" /> Appointment
+              <MdPermIdentity className="w-9 h-9 mr-2" /> Prescription
             </Link>
           </div>
         </div>

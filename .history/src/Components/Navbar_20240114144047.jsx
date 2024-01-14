@@ -63,7 +63,7 @@ function Navbar() {
               onClick={() => setOpen(!open)}
               className="py-3 flex items-center"
             >
-              <FaRegCalendarPlus className="ml-1 w-8 h-9 mr-2" /> Appointment
+              <FaRegCalendarPlus className="ml-1 w-9 h-9 mr-2" /> Appointment
             </Link>
           </div>
         </div>

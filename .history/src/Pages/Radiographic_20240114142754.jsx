@@ -74,7 +74,7 @@ function RadiographicExamination() {
               return (
                 <div
                   key={item.id}
-                  className="mt-5 shodow bg-neutral-50 rounded-md"
+                  className="mt-5 show bg-neutral-50 rounded-md"
                 >
                   <button
                     onClick={() => openModal(item.image)}

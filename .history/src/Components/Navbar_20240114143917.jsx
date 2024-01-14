@@ -6,7 +6,6 @@ import { MdPermIdentity } from 'react-icons/md';
 import { LiaXRaySolid } from 'react-icons/lia';
 import { ImLab } from 'react-icons/im';
 import { LiaPillsSolid } from 'react-icons/lia';
-import { FaRegCalendarPlus } from 'react-icons/fa6';
 function Navbar() {
   const [open, setOpen] = useState(false);
   return (
@@ -63,7 +62,7 @@ function Navbar() {
               onClick={() => setOpen(!open)}
               className="py-3 flex items-center"
             >
-              <FaRegCalendarPlus className="ml-1 w-8 h-9 mr-2" /> Appointment
+              <LiaPillsSolid className="ml-1 w-9 h-9 mr-2" /> Prescription
             </Link>
           </div>
         </div>

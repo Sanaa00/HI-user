@@ -9,7 +9,6 @@ import Radiographic from './Pages/Radiographic';
 import ModalComponent from './Components/ModalComponent';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
-import Appointment from './Pages/Appointment';
 
 function App() {
   return (
@@ -24,7 +23,7 @@ function App() {
         <Route path="/Prescription" element={<Prescription />} />
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/appointment" element={<Appointment />} />
+        <Route path="/" element={<SignUp />} />
         {/* <Route path="products" element={<Products />} />
           <Route path="setting" element={<Setting />} />
           <Route path="hide" element={<HideProducts />} /> */}
